@@ -8,7 +8,8 @@ import { TextField, Card, Box, Button } from '@mui/material';
 const ContactForm = (props) => {
     // Form berisi name, phone, email, dan photo url
     // Buatlah state newContact berupa objek sesuai dengan data yang ada
-    const [newContact, setNewContact] = useState({name:'', phone:'',email:'',photo:''});
+    const initialState = {name:'', phone:'',email:'',photo:''};
+    const [newContact, setNewContact] = useState(initialState);
     const inputOnChangeHandler = (event) => {
         const target = event.target;
         const value = target.value;
@@ -18,7 +19,7 @@ const ContactForm = (props) => {
     const formOnSubmitHandler = (event) => {
         event.preventDefault();
         props.fnAddContact(newContact);
-        setNewContact(newContact);
+        setNewContact(initialState);
       };
 
     return (
